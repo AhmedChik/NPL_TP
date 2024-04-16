@@ -1,0 +1,9 @@
+{
+  "lookup": {
+    "eJyLrq6NBQAEOAGx": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohvSg1taS2NhYA6dwbhQ==": "utter_ask_ingredients",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohvSg1taSWgBmlJSWpRfGJxdnxmXlADSmZQK3FOM2KBQBxgDi6": "action_listen",
+    "eJydjlEKgDAMQ6+yA3iCXUVkDK1SdJ20nT9jd7egP34N/EsgL8lY2+DqyXCFOCtm8q4+IlBM4N1rDhQFsmwRYMsgmVXvNgbQ1ukoqsAhyh6QDFjQUPnZ1fmDtGZOn5023UySV/0=": "utter_recommend_recipe",
+    "eJydjlEKhDAQQ6/SA+wJepVlKUWzMridynTqT/Hujrg/flX8SyB5ybttL9cWwRrioJTZu3aKwDHBu7/5UVGwZWuBWIbYrHo3CaBbh1FVISGWORBbYSSrloeszh/ib5Z02bl1TjDklMDjoWjBPfJnB1rUevg=": "action_listen"
+  }
+}
