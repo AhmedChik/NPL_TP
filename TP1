@@ -1,0 +1,54 @@
+# Importer les bibliothèques
+import pandas as pd
+
+import re
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+from nltk.stem import PorterStemmer, WordNetLemmatizer
+import nltk
+# Télécharger les ressources NLTK
+nltk.download('stopwords')
+nltk.download('wordnet')
+
+# Charger le dataset depuis Kaggle
+data = pd.read_csv('/kaggle/input/customer-support-on-twitter/sample.csv')
+
+# Afficher les premières lignes 
+print(data.head())
+
+# Fonction de nettoyage 
+def nettoyer_text(text):
+    # Mise en minuscules
+    text = text.lower()
+    # Suppression des ponctuations
+    text = re.sub(r'[^\w\s]', '', text)
+    # Suppression des URL
+    text = re.sub(r'http\S+|www\S+', '', text)
+    # Suppression des balises HTML
+    text = re.sub('<.*?>', '', text)
+    # Tokenization
+    tokens = word_tokenize(text)
+    # Suppression des mots vides
+    mot_vide = set(stopwords.words('english'))
+    tokens = [word for word in tokens if word not in mot_vide]
+    # Stemming
+    raciner_mots = PorterStemmer()
+    tokens = [raciner_mots.stem(word) for word in tokens]
+    
+    # Lemmatisation
+    lemmater = WordNetLemmatizer()
+    tokens = [lemmater.lemmatize(word) for word in tokens]
+    # Reconstruire le texte à partir des tokens nettoyés
+    text_cleaned = ' '.join(tokens)
+    return text_cleaned
+
+# Appliquer la fonction de nettoyage sur la colonne 'text'
+data['text_nettoye'] = data['text'].apply(nettoyer_text)
+
+# Sélectionner les colonnes 'tweet_id', 'text' et 'text_cleaned'
+cleaned_data = data[['tweet_id', 'text', 'text_nettoye']]
+
+# Afficher le DataFrame avec les colonnes nettoyées
+print(cleaned_data.head())
+
+
